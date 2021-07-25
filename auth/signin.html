@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="h-100">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../lib/asset/css/signin.css">
+  <link rel="stylesheet" href="../lib/asset/css/style.css">
+  <link rel="icon" href="../icon/Chrisbanks2-Cold-Fusion-Hd-Pikachu.ico">
+
+  <script src="../lib/jquery/jquery.min.js" charset="utf-8"></script>
+  <script src="../lib/bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
+  <script defer type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script defer nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <title>Pika Note - Sign in</title>
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="d-flex flex-column h-100">
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark p-2">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#Home" title="PikaNote" aria-label="PikaNote">
+          <img src="../image/pikachu-icon.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+          PikaNote
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item pe-5">
+              <a class="nav-link" title="Home" href="#signin">Sign in</a>
+            </li>
+            <li class="nav-item pe-5">
+              <a class="nav-link" href="#signup">Sign up</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="text-center form-signin mt-4">
+    <div class="container-md">
+      <img class="mb-4" src="../image/pikachu-icon.png" alt="" width="72" height="72">
+      <h1 class="mb-3 fw-normal">Please sign in</h1>
+
+      <div class="form-floating">
+        <input type="email" class="form-control mb-2" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control mb-2" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+      </div>
+
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    </div>
+  </main>
+  <footer class="text-center fw-bold lh-base footer mt-auto bg-dark">
+    <p class="text-muted m-auto">&copy; 2020–2021</p>
+  </footer>
+</body>
+
+</html>
