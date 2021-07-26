@@ -9,12 +9,12 @@
   <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="../lib/asset/css/signin.css">
   <link rel="stylesheet" href="../lib/asset/css/style.css">
-  <link rel="icon" href="../icon/Chrisbanks2-Cold-Fusion-Hd-Pikachu.ico">
+  <link rel="stylesheet" href="../lib/bootstrap-icon/bootstrap-icons.css">
+  <link rel="icon" href="../icons/logoPage.ico">
 
   <script src="../lib/jquery/jquery.min.js" charset="utf-8"></script>
   <script src="../lib/bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
-  <script defer type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script defer nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
   <title>Pika Note - Sign in</title>
 
   <style>
@@ -51,7 +51,7 @@
               <a class="nav-link" title="Home" href="#signin">Sign in</a>
             </li>
             <li class="nav-item pe-5">
-              <a class="nav-link" href="#signup">Sign up</a>
+              <a class="nav-link" href="#signup" data-bs-toggle="modal" data-bs-target="#modalSignup">Sign up</a>
             </li>
           </ul>
         </div>
@@ -64,22 +64,50 @@
       <h1 class="mb-3 fw-normal">Please sign in</h1>
 
       <div class="form-floating">
-        <input type="email" class="form-control mb-2" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
+        <input type="text" class="form-control mb-2" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Mobile number or email address</label>
       </div>
       <div class="form-floating">
         <input type="password" class="form-control mb-2" id="floatingPassword" placeholder="Password">
         <label for="floatingPassword">Password</label>
       </div>
-
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div>
       <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+      <div class="text-center m-1">
+        <span class="text-muted">
+          <i class="bi bi-dash-lg"></i>
+          or
+          <i class="bi bi-dash-lg"></i>
+        </span>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modalSignup">Sign up</button>
     </div>
   </main>
+  <div class="modal fade" id="modalSignup" tabindex="-1" aria-labelledby="modalSignup" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title fw-bold">Sign up</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-2 form-floating">
+            <input type="text" class="form-control" id="floatingName" placeholder="Password">
+            <label for="floatingName">Full name</label>
+          </div>
+          <div class="mb-2 form-floating">
+            <input type="text" class="form-control" id="floatingEmailOrPN" placeholder="Password">
+            <label for="floatingEmailOrPN">Mobile number or email address</label>
+          </div>
+          <div class="mb-2 form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+          </div>
+          <hr />
+          <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <footer class="text-center fw-bold lh-base footer mt-auto bg-dark">
     <p class="text-muted m-auto">&copy; 2020–2021</p>
   </footer>
