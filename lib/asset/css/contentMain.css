@@ -1,0 +1,22 @@
+.card {
+  border-top: 3px solid transparent;
+}
+.card:hover {
+  border-top: 3px solid var(--bs-red);
+}
+.card:hover .iconCNCard {
+  opacity: 1;
+}
+
+.iconCNCard {
+  transition: .3s ease opacity;
+  opacity: 0;
+}
+.iconCNCard::before {
+  content: '';
+  padding: 7px;
+  border-radius: 50%;
+}
+.iconCNCard:hover.iconCNCard::before {
+  background: rgba(100, 100, 100, .5);
+}
