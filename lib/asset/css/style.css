@@ -6,7 +6,11 @@
 body {
   font-family: var(--bs-font-sans-serif);
   font-size: 1rem;
-  background: var(--bs-dark);
+  background-image: url("../../../image/images.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 
 header {
@@ -43,8 +47,8 @@ header {
   position: fixed;
   padding: 20px;
   background: var(--bs-light);
-  bottom: 30px;
-  right: 30px;
+  bottom: 20px;
+  right: 20px;
   border-radius: 50%;
   cursor: pointer;
 }
