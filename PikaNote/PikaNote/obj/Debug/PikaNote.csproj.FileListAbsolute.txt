@@ -1,0 +1,5 @@
+D:\github\WebNote\PikaNote\PikaNote\bin\PikaNote.dll
+D:\github\WebNote\PikaNote\PikaNote\bin\PikaNote.pdb
+D:\github\WebNote\PikaNote\PikaNote\obj\Debug\PikaNote.dll
+D:\github\WebNote\PikaNote\PikaNote\obj\Debug\PikaNote.pdb
+D:\github\WebNote\PikaNote\PikaNote\obj\Debug\PikaNote.csprojResolveAssemblyReference.cache
