@@ -2,6 +2,7 @@
   border-top: 3px solid transparent;
   background-color: rgba(33, 37, 41, .6);
   color: var(--bs-light);
+  width: 16rem;
 }
 .card:hover {
   border-top: 3px solid var(--bs-red);
@@ -30,4 +31,10 @@ main {
 
 .modal-title {
   width: 95%;
+}
+
+@media only screen and (max-width: 767px){
+  .card {
+    width: auto;
+  }
 }
