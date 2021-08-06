@@ -27,3 +27,7 @@
 main {
   border-top: 1px solid var(--bs-light);
 }
+
+.modal-title {
+  width: 95%;
+}
