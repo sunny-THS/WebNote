@@ -1,3 +1,8 @@
+body {
+  font-family: var(--bs-font-sans-serif);
+  font-size: 1rem;
+  background: var(--bs-dark);
+}
 .form-signin {
   width: 100%;
   max-width: 380px;

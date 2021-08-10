@@ -1433,9 +1433,17 @@
     <Content Include="image\avtDefault.png" />
     <Content Include="image\nen.jpg" />
     <Content Include="image\pikachu-icon.png" />
+    <Content Include="lib\asset\css\Common.css" />
     <Content Include="lib\asset\css\contentMain.css" />
     <Content Include="lib\asset\css\signin.css" />
     <Content Include="lib\asset\css\style.css" />
+    <Content Include="lib\asset\script\editInfoUser.js" />
+    <Content Include="lib\asset\script\handleCard.js" />
+    <Content Include="lib\asset\script\handleCard_Recycle.js" />
+    <Content Include="lib\asset\script\handleCard_Storage.js" />
+    <Content Include="lib\asset\script\loadData.js" />
+    <Content Include="lib\asset\script\loadData_Recycle.js" />
+    <Content Include="lib\asset\script\loadData_storage.js" />
     <Content Include="lib\asset\script\Signup.js" />
     <Content Include="lib\asset\script\validate.js" />
     <Content Include="lib\bootstrap-icon\bootstrap-icons.css" />
@@ -1467,9 +1475,10 @@
     <Content Include="lib\jquery\jquery.slim.js" />
     <Content Include="lib\jquery\jquery.slim.min.js" />
     <Content Include="lib\sweetalert\sweetalert2%4011.js" />
-    <Content Include="view\EditNote.aspx" />
     <Content Include="view\Home.aspx" />
-    <Content Include="view\ProfileUser.aspx" />
+    <Content Include="view\NewNote.aspx" />
+    <Content Include="view\NoteService.asmx" />
+    <Content Include="view\Profile.aspx" />
     <Content Include="view\RecycleBin.aspx" />
     <Content Include="view\Storage.aspx" />
     <Content Include="Web.config">
@@ -1504,13 +1513,6 @@
       <DependentUpon>masterPageSignin.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="view\EditNote.aspx.cs">
-      <DependentUpon>EditNote.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="view\EditNote.aspx.designer.cs">
-      <DependentUpon>EditNote.aspx</DependentUpon>
-    </Compile>
     <Compile Include="view\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1518,12 +1520,24 @@
     <Compile Include="view\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="view\ProfileUser.aspx.cs">
-      <DependentUpon>ProfileUser.aspx</DependentUpon>
+    <Compile Include="view\NewNote.aspx.cs">
+      <DependentUpon>NewNote.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="view\ProfileUser.aspx.designer.cs">
-      <DependentUpon>ProfileUser.aspx</DependentUpon>
+    <Compile Include="view\NewNote.aspx.designer.cs">
+      <DependentUpon>NewNote.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="view\Note.cs" />
+    <Compile Include="view\NoteService.asmx.cs">
+      <DependentUpon>NoteService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="view\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="view\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="view\RecycleBin.aspx.cs">
       <DependentUpon>RecycleBin.aspx</DependentUpon>

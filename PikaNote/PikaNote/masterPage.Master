@@ -11,10 +11,26 @@
     <link rel="icon" href="icons/logoPage.ico" />
     <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/lib/bootstrap-icon/bootstrap-icons.css" rel="stylesheet" />
+
+    <link href="/lib/asset/css/Common.css" rel="stylesheet" />
     <link href="/lib/asset/css/style.css" rel="stylesheet" />
 
     <script src="/lib/jquery/jquery.min.js"></script>
     <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/lib/sweetalert/sweetalert2@11.js"></script>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        });
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -36,10 +52,10 @@
                                 <asp:HyperLink ID="Home" CssClass="nav-link" title="Home" aria-current="page" NavigateUrl="~/view/Home.aspx" runat="server">Trang chủ</asp:HyperLink>
                             </li>
                             <li class="nav-item pe-5">
-                                <asp:HyperLink ID="Store"  CssClass="nav-link" title="Storage" aria-current="page" NavigateUrl="~/view/Storage.aspx" runat="server">Lưu trữ</asp:HyperLink>
+                                <asp:HyperLink ID="Store" CssClass="nav-link" title="Storage" aria-current="page" NavigateUrl="~/view/Storage.aspx" runat="server">Lưu trữ</asp:HyperLink>
                             </li>
                             <li class="nav-item pe-5">
-                                <asp:HyperLink ID="RecycleBin"  CssClass="nav-link" title="Recycle Bin" aria-current="page" NavigateUrl="~/view/RecycleBin.aspx" runat="server">Thùng rác</asp:HyperLink>
+                                <asp:HyperLink ID="RecycleBin" CssClass="nav-link" title="Recycle Bin" aria-current="page" NavigateUrl="~/view/RecycleBin.aspx" runat="server">Thùng rác</asp:HyperLink>
                             </li>
                             <li class="nav-item dropdown">
                                 <asp:HyperLink ID="logoUser" CssClass="nav-link avtID dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" NavigateUrl="#user" runat="server">
@@ -47,10 +63,10 @@
                                 </asp:HyperLink>
                                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark bg-dark text-small shadow">
                                     <li>
-                                        <asp:HyperLink ID="userNewNote" CssClass="dropdown-item" NavigateUrl="#newNote" runat="server">New note...</asp:HyperLink>
+                                        <asp:HyperLink ID="userNewNote" CssClass="dropdown-item" NavigateUrl="~/view/NewNote.aspx" runat="server">New note...</asp:HyperLink>
                                     </li>
                                     <li>
-                                        <asp:HyperLink ID="userProfile" CssClass="dropdown-item" NavigateUrl="~/view/ProfileUser.aspx" runat="server">Profile</asp:HyperLink>
+                                        <asp:HyperLink ID="userProfile" CssClass="dropdown-item" NavigateUrl="~/view/Profile.aspx" runat="server">Profile</asp:HyperLink>
                                     </li>
                                     <li>
                                         <hr class="dropdown-divider">
@@ -65,14 +81,36 @@
                 </div>
             </nav>
         </header>
-        <div class="d-flex">
+        <main class="d-flex">
             <asp:ContentPlaceHolder ID="ContentWeb" runat="server">
-        
             </asp:ContentPlaceHolder>
-        </div>
+        </main>
+        <asp:HyperLink ID="HyperLink1" CssClass="addNote" runat="server" NavigateUrl="~/view/NewNote.aspx" title="New note...">
+            <span></span>
+            <span></span>
+        </asp:HyperLink>
     </form>
+    <div class="modal fade" id="modalEditNote" tabindex="-1" aria-labelledby="modalSignup" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title titleCard h3 fw-bold" contenteditable="true" spellcheck="false" aria-multiline="true" role="textbox" dir="ltr"></div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="contentCard" contenteditable="true" spellcheck="false" aria-multiline="true" role="textbox" dir="ltr"></div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-lg btn-primary" id="btnEditNote" type="submit">Xác nhận</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <footer class="text-center fw-bold lh-base footer mt-auto bg-dark">
         <p class="text-muted m-auto">&copy; 2020–2021</p>
     </footer>
+    <script type="text/javascript">
+        var modalEditNote = new bootstrap.Modal(document.getElementById('modalEditNote'))
+    </script>
 </body>
 </html>

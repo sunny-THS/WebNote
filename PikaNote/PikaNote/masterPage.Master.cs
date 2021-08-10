@@ -14,6 +14,13 @@ namespace PikaNote
         private String strConnect = ConfigurationManager.ConnectionStrings["ketnoi"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                loadData();
+            }
+        }
+        public void loadData()
+        {
             using (SqlConnection conn = new SqlConnection(strConnect))
             {
                 String strSqlGetInfo = "select * from thongtinnguoidung where madn = @ma";
@@ -27,9 +34,13 @@ namespace PikaNote
                 SqlDataReader sdr = sqlCMD.ExecuteReader();
                 if (sdr.Read())
                 {
-                    this.body.Style.Add("background-image", "../image/" + sdr["background"].ToString());
+                    var imgBackGround = sdr["background"].ToString();
+                    if (imgBackGround.Equals(""))
+                        this.body.Style.Add("background", "var(--bs-dark)");
+                    else
+                        this.body.Style.Add("background-image", "../image/" + imgBackGround);
                     this.ImageUser.ImageUrl = "~/image/" + sdr["avt"].ToString();
-                    this.logoUser.Attributes.Add("title", sdr["tennguoidung"].ToString());
+                    this.logoUser.Attributes.Add("title", sdr["tennguoidung"].ToString() + " - " + Session["user"].ToString());
                 }
             }
         }

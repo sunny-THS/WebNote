@@ -39,6 +39,7 @@ namespace PikaNote.auth
                 {
                     Session["idUser"] = sdr["ma"].ToString();
                     Session["userName"] = strUserName;
+                    Session["user"] = strUserName;
                     Response.Redirect("../view/Home.aspx");
                 }
                 else
