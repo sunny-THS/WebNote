@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Store" Language="C#" MasterPageFile="~/masterPage.Master" AutoEventWireup="true" CodeBehind="Storage.aspx.cs" Inherits="PikaNote.Store" %>
+﻿<%@ Page Title="PikaNote - Storage" Language="C#" MasterPageFile="~/masterPage.Master" AutoEventWireup="true" CodeBehind="Storage.aspx.cs" Inherits="PikaNote.Store" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../lib/asset/css/contentMain.css" rel="stylesheet" />
     <link href="../lib/bootstrap-icon/bootstrap-icons.css" rel="stylesheet" />

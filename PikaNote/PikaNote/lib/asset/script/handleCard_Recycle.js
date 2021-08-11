@@ -10,6 +10,10 @@
         success: (data) => {
             console.log(data.d);
             $(infoCard.parentElement).remove()
+            Toast.fire({
+                icon: 'success', 
+                title: 'Note đã được khôi phục' 
+            });
         },
         error: (request, error) => {
             //This callback function will trigger on unsuccessful action                

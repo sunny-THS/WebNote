@@ -14,10 +14,3 @@ async function changeBg (avt) {
     const base64 = await toBase64( file );
     $('#ContentWeb_imgBG').attr('src', base64);
 }
-
-//function toBase64(arr) {
-//    //arr = new Uint8Array(arr) if it's an ArrayBuffer
-//    return btoa(
-//       arr.reduce((data, byte) => data + String.fromCharCode(byte), '')
-//    );
-//}

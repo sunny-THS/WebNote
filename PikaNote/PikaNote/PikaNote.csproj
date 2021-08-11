@@ -1513,6 +1513,7 @@
       <DependentUpon>masterPageSignin.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="view\convertImage.cs" />
     <Compile Include="view\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

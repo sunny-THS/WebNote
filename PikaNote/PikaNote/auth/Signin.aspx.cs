@@ -21,8 +21,13 @@ namespace PikaNote.auth
 
         protected void btnSignin_Click(object sender, EventArgs e)
         {
-            String strUserName = this.floatingInputSignin.Text;
+            String strUserName = this.floatingInputSignin.Text.Trim();
             String strPw = ComputeSha256Hash(this.floatingPasswordSignin.Text);
+            if (strUserName.Equals("") || this.floatingPasswordSignin.Text.Trim().Equals("")) {
+                String strb = "Toast.fire({icon: 'warning', title: 'Vui lòng điền đủ thông tin đăng nhập' })";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", strb, true);
+                return;
+            }
             using (SqlConnection conn = new SqlConnection(strConnect))
             {
                 String strSqlCheckLogin = "select * from dangnhap where tendangnhap = @tenDN and matkhau = @pw";

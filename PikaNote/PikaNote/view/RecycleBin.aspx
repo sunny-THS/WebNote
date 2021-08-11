@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Recycle Bin" Language="C#" MasterPageFile="~/masterPage.Master" AutoEventWireup="true" CodeBehind="RecycleBin.aspx.cs" Inherits="PikaNote.RecycleBin" %>
+﻿<%@ Page Title="PikaNote - Recycle Bin" Language="C#" MasterPageFile="~/masterPage.Master" AutoEventWireup="true" CodeBehind="RecycleBin.aspx.cs" Inherits="PikaNote.RecycleBin" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../lib/asset/css/contentMain.css" rel="stylesheet" />
     <link href="../lib/bootstrap-icon/bootstrap-icons.css" rel="stylesheet" />

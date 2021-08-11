@@ -65,6 +65,10 @@ $(document).on('click', '.btnStorageCard', (e) => {
       success: (data) => {
           console.log(data.d);
           $(infoCard.parentElement).remove()
+          Toast.fire({
+              icon: 'success', 
+              title: 'Lưu trữ thành công' 
+          });   
       },
       error: (request, error) => {
           //This callback function will trigger on unsuccessful action                
@@ -87,6 +91,10 @@ $(document).on('click', '.btnDelCard', (e) => {
     success: (data) => {
         console.log(data.d);
         $(infoCard.parentElement).remove()
+        Toast.fire({
+            icon: 'warning', 
+            title: 'Note đã được chuyển vào thùng rác' 
+        });
     },
     error: (request, error) => {
         //This callback function will trigger on unsuccessful action                

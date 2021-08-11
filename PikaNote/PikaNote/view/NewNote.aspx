@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/masterPage.Master" AutoEventWireup="true" CodeBehind="NewNote.aspx.cs" Inherits="PikaNote.view.NewNote" %>
+﻿<%@ Page Title="PikaNote - New Note" Language="C#" MasterPageFile="~/masterPage.Master" AutoEventWireup="true" CodeBehind="NewNote.aspx.cs" Inherits="PikaNote.view.NewNote" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentWeb" runat="server">
