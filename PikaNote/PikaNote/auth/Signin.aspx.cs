@@ -6,8 +6,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
-using System.Text;
-using System.Security.Cryptography;
 
 namespace PikaNote.auth
 {
@@ -22,8 +20,9 @@ namespace PikaNote.auth
         protected void btnSignin_Click(object sender, EventArgs e)
         {
             String strUserName = this.floatingInputSignin.Text.Trim();
-            String strPw = ComputeSha256Hash(this.floatingPasswordSignin.Text);
-            if (strUserName.Equals("") || this.floatingPasswordSignin.Text.Trim().Equals("")) {
+            String strPw = Hash.ComputeSha256Hash(this.floatingPasswordSignin.Text);
+            if (strUserName.Equals("") || this.floatingPasswordSignin.Text.Trim().Equals(""))
+            {
                 String strb = "Toast.fire({icon: 'warning', title: 'Vui lòng điền đủ thông tin đăng nhập' })";
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", strb, true);
                 return;
@@ -43,7 +42,6 @@ namespace PikaNote.auth
                 if (sdr.Read())
                 {
                     Session["idUser"] = sdr["ma"].ToString();
-                    Session["userName"] = strUserName;
                     Session["user"] = strUserName;
                     Response.Redirect("../view/Home.aspx");
                 }
@@ -54,21 +52,34 @@ namespace PikaNote.auth
                 }
             }
         }
-        static String ComputeSha256Hash(String rawData)
-        {
-            // Create a SHA256   
-            using (SHA256 sha256Hash = SHA256.Create())
-            {
-                // ComputeHash - returns byte array  
-                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
 
-                // Convert byte array to a string   
-                StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < bytes.Length; i++)
+        protected void btnForgotPW_Click(object sender, EventArgs e)
+        {
+
+            using (SqlConnection conn = new SqlConnection(strConnect))
+            {
+                String strSqlCheckLogin = "select * from dangnhap join thongtinnguoidung ttnd on dangnhap.ma=ttnd.madn where tendangnhap = @tenDN";
+
+                SqlCommand sqlCMD = new SqlCommand();
+                sqlCMD.CommandText = strSqlCheckLogin;
+                sqlCMD.Parameters.AddWithValue("@tenDN", this.floatingUsernameForgotPW.Text.Trim());
+
+                sqlCMD.Connection = conn;
+                conn.Open();
+                SqlDataReader sdr = sqlCMD.ExecuteReader();
+                if (sdr.Read())
                 {
-                    builder.Append(bytes[i].ToString("x2"));
+                    Session["idUser"] = sdr["ma"].ToString();
+                    Session["user"] = this.floatingUsernameForgotPW.Text.Trim();
+                    Session["emailAddress"] = sdr["email"].ToString();
+                    Response.Redirect("ForgetPassword.aspx");
                 }
-                return builder.ToString();
+                else
+                {
+                    String strb = "Toast.fire({icon: 'error', title: 'Không có tên đăng nhặp này. Vui lòng kiểm tra lại' })";
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", strb, true);
+                    this.floatingUsernameForgotPW.Text = "ex: username";
+                }
             }
         }
     }

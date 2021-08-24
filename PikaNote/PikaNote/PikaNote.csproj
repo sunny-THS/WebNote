@@ -57,6 +57,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="auth\ForgetPassword.aspx" />
+    <Content Include="auth\MailService.asmx" />
     <Content Include="auth\Signin.aspx" />
     <Content Include="auth\SignupService.asmx" />
     <Content Include="icons\alarm-fill.svg" />
@@ -1486,6 +1488,18 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="auth\ForgetPassword.aspx.cs">
+      <DependentUpon>ForgetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="auth\ForgetPassword.aspx.designer.cs">
+      <DependentUpon>ForgetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="auth\Hash.cs" />
+    <Compile Include="auth\MailService.asmx.cs">
+      <DependentUpon>MailService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="auth\Signin.aspx.cs">
       <DependentUpon>Signin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -18,12 +18,12 @@
             </div>
         </div>
         <div class="form-floating my-2">
-            <asp:TextBox ID="floatingEmail" CssClass="form-control" placeholder="email" runat="server"></asp:TextBox>
+            <asp:TextBox ID="floatingEmail" CssClass="form-control" placeholder="email" runat="server" disabled readonly></asp:TextBox>
             <label for="floatingEmail">Email</label>
-            <div class="d-grid">
+            <%--<div class="d-grid">
                 <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidator2"  CssClass="text-danger text-start bg-dark" runat="server" ControlToValidate="floatingEmail" ErrorMessage="Xin mời nhập email"></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator Display="Dynamic"  CssClass="text-danger text-start bg-dark" ControlToValidate="floatingEmail" ValidationExpression='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$' ID="RegularExpressionValidatorEmail" runat="server" ErrorMessage="Email không hợp lợi. Mời nhập lại"></asp:RegularExpressionValidator>
-            </div>
+            </div>--%>
         </div>
         <div class="form-floating my-2">
             <asp:TextBox ID="floatingSDT" CssClass="form-control" placeholder="tel" runat="server"></asp:TextBox>

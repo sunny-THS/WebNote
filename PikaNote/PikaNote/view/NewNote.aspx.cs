@@ -23,44 +23,52 @@ namespace PikaNote.view
         {
             var titleNote = this.floatingTitleNote.Text;
             var contentNote = this.floatingContentNote.Text;
-            using (SqlConnection conn = new SqlConnection(strConnect))
+            if (!titleNote.Trim().Equals("") || !contentNote.Trim().Equals(""))
             {
-                SqlCommand sqlCMD = new SqlCommand("spAddNote", conn);
-                sqlCMD.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter paraTitleNote= new SqlParameter()
+                using (SqlConnection conn = new SqlConnection(strConnect))
                 {
-                    ParameterName = "@Title",
-                    Value = titleNote
-                };
-                sqlCMD.Parameters.Add(paraTitleNote);
+                    SqlCommand sqlCMD = new SqlCommand("spAddNote", conn);
+                    sqlCMD.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter paraCodeDN = new SqlParameter()
-                {
-                    ParameterName = "@CodeDN",
-                    Value = Int32.Parse(Session["idUser"].ToString())
-                };
-                sqlCMD.Parameters.Add(paraCodeDN);
+                    SqlParameter paraTitleNote = new SqlParameter()
+                    {
+                        ParameterName = "@Title",
+                        Value = titleNote
+                    };
+                    sqlCMD.Parameters.Add(paraTitleNote);
 
-                SqlParameter paraContentNote = new SqlParameter()
-                {
-                    ParameterName = "@ContentCard",
-                    Value = contentNote
-                };
-                sqlCMD.Parameters.Add(paraContentNote);
+                    SqlParameter paraCodeDN = new SqlParameter()
+                    {
+                        ParameterName = "@CodeDN",
+                        Value = Int32.Parse(Session["idUser"].ToString())
+                    };
+                    sqlCMD.Parameters.Add(paraCodeDN);
 
-                SqlParameter paraId = new SqlParameter()
-                {
-                    ParameterName = "@NewId",
-                    Value = -1,
-                    Direction = ParameterDirection.Output
-                };
-                sqlCMD.Parameters.Add(paraId);
+                    SqlParameter paraContentNote = new SqlParameter()
+                    {
+                        ParameterName = "@ContentCard",
+                        Value = contentNote
+                    };
+                    sqlCMD.Parameters.Add(paraContentNote);
 
-                conn.Open();
-                sqlCMD.ExecuteNonQuery();
+                    SqlParameter paraId = new SqlParameter()
+                    {
+                        ParameterName = "@NewId",
+                        Value = -1,
+                        Direction = ParameterDirection.Output
+                    };
+                    sqlCMD.Parameters.Add(paraId);
+
+                    conn.Open();
+                    sqlCMD.ExecuteNonQuery();
+                }
+                Response.Redirect("~/view/Home.aspx");
             }
-            Response.Redirect("~/view/Home.aspx");
+            else
+            {
+                String strb = "Toast.fire({icon: 'warning', title: 'Vui lòng nhập tiêu đề hoặc nội dung của ghi chú' })";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", strb, true);
+            }
         }
     }
 }

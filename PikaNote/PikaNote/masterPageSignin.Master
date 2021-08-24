@@ -31,7 +31,7 @@
             didOpen: (toast) => {
                 toast.addEventListener('mouseenter', Swal.stopTimer)
                 toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
+        }
         });
     </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -101,9 +101,18 @@
                         <input type="password" class="form-control" id="floatingPasswordSignup" placeholder="Password">
                         <label for="floatingPasswordSignup">Password</label>
                     </div>
-                    <div class="mb-2 form-floating">
-                        <input type="email" class="form-control" id="floatingEmailSignup" placeholder="Email">
-                        <label for="floatingEmailSignup">Email</label>
+                    <div class="row g-2">
+                        <div class="input-group col">
+                            <div class="mb-2 form-floating">
+                                <input type="email" class="form-control" id="floatingEmailSignup" placeholder="Email">
+                                <label for="floatingEmailSignup">Email</label>
+                            </div>
+                            <button class="btn btn-primary mb-2" id="btnXNEmail" type="button">Xác nhận</button>
+                        </div>
+                        <div class="mb-2 form-floating col-4">
+                            <input type="email" class="form-control" id="floatingMXNSignup" placeholder="Code">
+                            <label for="floatingMXNSignup">Code</label>
+                        </div>
                     </div>
                     <div class="mb-2 form-floating">
                         <input type="tel" class="form-control" id="floatingPhoneSignup" placeholder="Tel">

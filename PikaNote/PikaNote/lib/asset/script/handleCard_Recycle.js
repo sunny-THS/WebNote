@@ -8,7 +8,7 @@
         data: `{id: ${codeCard}}`,
         contentType:"application/json; charset=utf-8",
         success: (data) => {
-            console.log(data.d);
+            //console.log(data.d);
             $(infoCard.parentElement).remove()
             Toast.fire({
                 icon: 'success', 
@@ -35,7 +35,7 @@ $(document).on('click', '.btnDelCard', (e) => {
         data: `{id: ${codeCard}}`,
         contentType:"application/json; charset=utf-8",
         success: (data) => {
-            console.log(data.d);
+            //console.log(data.d);
             $(infoCard.parentElement).remove();
             Toast.fire({
                 icon: 'success', 

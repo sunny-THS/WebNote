@@ -31,6 +31,15 @@ namespace PikaNote.auth {
         protected global::System.Web.UI.WebControls.TextBox floatingPasswordSignin;
         
         /// <summary>
+        /// HyperLink1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        
+        /// <summary>
         /// btnSignin control.
         /// </summary>
         /// <remarks>
@@ -47,5 +56,32 @@ namespace PikaNote.auth {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink btnSignup;
+        
+        /// <summary>
+        /// floatingUsernameForgotPW control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox floatingUsernameForgotPW;
+        
+        /// <summary>
+        /// ValidateUsernameForgotPW control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidateUsernameForgotPW;
+        
+        /// <summary>
+        /// btnForgotPW control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnForgotPW;
     }
 }

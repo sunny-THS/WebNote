@@ -27,6 +27,15 @@ document.getElementById('modalEditNote').addEventListener('hide.bs.modal', (even
 $('#btnEditNote').click((e) => {
     dataEdidCard.Title = $('.modal-header .titleCard').html()
     dataEdidCard.Content = $('.modal-body .contentCard').html()
+    
+    // kiểm tra note có rỗng không
+    if (dataEdidCard.Title.trim() == '' &&  dataEdidCard.Content.trim() == '') {
+        Toast.fire({
+            icon: 'warning', 
+            title: 'Ghi chú không được rỗng.' 
+        });
+        return;
+    }
     //console.log(dataEdidCard);
 // push to db
     $.ajax({
@@ -40,7 +49,7 @@ $('#btnEditNote').click((e) => {
                 title: 'Thay đổi thành công!' 
             });
             modalEditNote.toggle();
-            console.log(data);
+            //console.log(data);
         },
         error: (request, error) => {
             //This callback function will trigger on unsuccessful action                
@@ -63,7 +72,7 @@ $(document).on('click', '.btnStorageCard', (e) => {
       data: `{id: ${codeCard}}`,
       contentType:"application/json; charset=utf-8",
       success: (data) => {
-          console.log(data.d);
+          //console.log(data.d);
           $(infoCard.parentElement).remove()
           Toast.fire({
               icon: 'success', 
@@ -89,7 +98,7 @@ $(document).on('click', '.btnDelCard', (e) => {
     data: `{id: ${codeCard}}`,
     contentType:"application/json; charset=utf-8",
     success: (data) => {
-        console.log(data.d);
+        //console.log(data.d);
         $(infoCard.parentElement).remove()
         Toast.fire({
             icon: 'warning', 

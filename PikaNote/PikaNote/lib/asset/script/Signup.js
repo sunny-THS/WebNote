@@ -1,9 +1,65 @@
-﻿$('#btnSignupInfo').click(function () {
+﻿var codeXacNhan;
+function getMaCode(email) {
+    $.ajax({
+        url: '/auth/MailService.asmx/sendMail',
+        data: `{_to: ${JSON.stringify(email.trim())}}`,
+        type: 'POST',
+        contentType:"application/json; charset=utf-8",
+        success: (data) => {
+            Toast.fire({
+                icon: 'success', 
+                title: 'Kiểm tra email để lấy mã xác nhận!' 
+            });
+            return data.d;
+        },
+        error: (request, error) => {
+            // This callback function will trigger on unsuccessful action                
+            Toast.fire({
+                icon: 'error', 
+                title: 'Đã xảy ra lỗi! Vui lòng thử lại.' 
+            });
+        }
+    });
+}
+$('#btnXNEmail').click(function() {
+    Toast.fire({
+        icon: 'information', 
+        title: 'Vui lòng đợi trong giấy lát' 
+    });
+    const email_ = $('#floatingEmailSignup').val();
+    if ( email_.trim().length==0 ) {
+        Toast.fire({
+            icon: 'error', 
+            title: 'Vui lòng nhập email!' 
+        });
+        $('#floatingEmailSignup').css({
+            'border': '1px solid red'
+        })
+        return;
+    }
+    if (!validateEmail(email_))
+    {
+        Toast.fire({
+            icon: 'error', 
+            title: 'Email không hợp lợi.Vui lòng nhập lại.' 
+        });
+        $('#floatingNameSignup, #floatingUsernameSignup, #floatingPasswordSignup, #floatingPhoneSignup').css({
+            'border': ''
+        });
+        $('#floatingEmailSignup').css({
+            'border': '1px solid red'
+        })
+        return;
+    }
+    codeXacNhan = getMaCode(email_);
+});
+$('#btnSignupInfo').click(function () {
     const name_ = $('#floatingNameSignup').val();
     const username_ = $('#floatingUsernameSignup').val();
     const pw_ = $('#floatingPasswordSignup').val();
     const email_ = $('#floatingEmailSignup').val();
     const tel_ = $('#floatingPhoneSignup').val();
+    const code_ = $('#floatingMXNSignup').val();
 
     $('#floatingNameSignup, #floatingUsernameSignup, #floatingPasswordSignup, #floatingEmailSignup, #floatingPhoneSignup').css({
         'border': ''
@@ -30,6 +86,28 @@
             'border': ''
         });
         $('#floatingEmailSignup').css({
+            'border': '1px solid red'
+        })
+        return;
+    }
+    if ( code_.trim().length==0 )
+    {
+        Toast.fire({
+            icon: 'error', 
+            title: 'Vui lòng xác nhận email!' 
+        });
+        $('#floatingMXNSignup').css({
+            'border': '1px solid red'
+        })
+        return;
+    }
+    if ( code_.trim() != codeXacNhan )
+    {
+        Toast.fire({
+            icon: 'error', 
+            title: 'Mã không chính xác. Vui lòng kiểm tra lại email!' 
+        });
+        $('#floatingMXNSignup').css({
             'border': '1px solid red'
         })
         return;
